@@ -88,6 +88,12 @@ if __name__ == '__main__':
     for t in range(5000):
         if t % 1000 == 0:
             print('Iteration %d' % t)
+            """generate an episode using the current policy, 
+            update the returns for every state-action pair,
+            calculate Q for each state-action pair,
+            update the policy at every state using pi(s) = argmax[a]{ Q(s,a) }
+            ENTER CODE HERE
+            """
             deltas = play_episode(env, policy)
             #print(deltas)
             #input()
@@ -110,12 +116,6 @@ if __name__ == '__main__':
                 probs[a_max] = 1 - epsilon + (epsilon / n_actions)
                 policy[state] = probs
                 
-        """generate an episode using the current policy, 
-        update the returns for every state-action pair,
-        calculate Q for each state-action pair,
-        update the policy at every state using pi(s) = argmax[a]{ Q(s,a) }
-        ENTER CODE HERE
-        """
 
     # find the optimal state-value function
     # V(s) = max[a]{ Q(s,a) }
